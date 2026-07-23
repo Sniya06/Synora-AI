@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Synora AI — Your Career, Orchestrated</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Resume Agent: real parsing of uploaded PDF / DOCX files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+</head>
+<body>
+
+<!-- ============================================================
+     LANDING PAGE
+============================================================ -->
+<div id="screen-landing" class="screen active">
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand">
+        <span class="brand-mark">✺</span>
+        <span class="brand-name">Synora <span class="brand-ai">AI</span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Agents</a>
+        <a href="#about">About</a>
+        <a href="#stats">Impact</a>
+      </div>
+      <button class="btn btn-primary" onclick="openAuthModal('signup')">Get Started</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Multi-agent career orchestration</p>
+      <h1>Nine agents.<br>One conversation.<br><span class="highlight">Your entire career, run.</span></h1>
+      <p class="hero-sub">Synora doesn't just list jobs, internships, and hackathons scattered across ten tabs — it fields a coordinated team of AI agents that diagnose your readiness, close your skill gaps, and act on your behalf.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="openAuthModal('signup')">Get Started — it's free</button>
+        <button class="btn btn-ghost btn-lg" onclick="scrollToId('features')">See the agents ↓</button>
+      </div>
+    </div>
+    <div class="hero-orbit" aria-hidden="true">
+      <div class="orbit-core">
+        <span>Synora</span>
+        <small>Orchestrator</small>
+      </div>
+      <div class="orbit-ring ring-1"></div>
+      <div class="orbit-ring ring-2"></div>
+      <div class="orbit-ring ring-3"></div>
+      <div class="orbit-node node-1" style="--i:0"><span>📄</span>Resume</div>
+      <div class="orbit-node node-2" style="--i:1"><span>🎯</span>Match</div>
+      <div class="orbit-node node-3" style="--i:2"><span>📈</span>Skill Gap</div>
+      <div class="orbit-node node-4" style="--i:3"><span>🔍</span>Opportunity</div>
+      <div class="orbit-node node-5" style="--i:4"><span>🎤</span>Interview</div>
+      <div class="orbit-node node-6" style="--i:5"><span>🛡</span>Scam Check</div>
+    </div>
+  </header>
+
+  <section class="section" id="features">
+    <p class="eyebrow center">The agent team</p>
+    <h2 class="section-title center">Every stage of the hunt, staffed</h2>
+    <div class="feature-grid">
+      <div class="feature-card"><div class="feature-icon">📄</div><h3>Resume Agent</h3><p>Scores your resume, extracts skills and projects, and tells you exactly what to fix.</p></div>
+      <div class="feature-card"><div class="feature-icon">🎯</div><h3>Matchmaking Agent</h3><p>Ranks live jobs, internships and hackathons against your profile with a fit score.</p></div>
+      <div class="feature-card"><div class="feature-icon">📈</div><h3>Skill Gap Agent</h3><p>Maps what you're missing for your target role and builds the shortest path there.</p></div>
+      <div class="feature-card"><div class="feature-icon">🔍</div><h3>Opportunity Agent</h3><p>One searchable feed for jobs, internships and hackathons, with deadlines that matter.</p></div>
+      <div class="feature-card"><div class="feature-icon">🎤</div><h3>Interview Agent</h3><p>Runs mock interviews and grades your answers like a real panel would.</p></div>
+      <div class="feature-card"><div class="feature-icon">🛡</div><h3>Scam Detection Agent</h3><p>Pastes into a job post, flags the red flags before you hand over your data.</p></div>
+    </div>
+  </section>
+
+  <section class="section alt" id="about">
+    <div class="about-grid">
+      <div>
+        <p class="eyebrow">Why Synora</p>
+        <h2 class="section-title">Opportunities are scattered. Readiness shouldn't be a guess.</h2>
+        <p class="about-copy">Students juggle LinkedIn, Internshala, Unstop, Naukri and GitHub just to find what's open — then have no idea if they're even qualified. Synora consolidates discovery, diagnosis and preparation into one conversational workspace, so effort goes into applying, not searching.</p>
+      </div>
+      <div class="timeline-preview">
+        <div class="tl-item"><span class="tl-dot"></span>Resume analyzed</div>
+        <div class="tl-item"><span class="tl-dot"></span>Skill gaps mapped</div>
+        <div class="tl-item"><span class="tl-dot"></span>Matches ranked</div>
+        <div class="tl-item"><span class="tl-dot"></span>Interview rehearsed</div>
+        <div class="tl-item"><span class="tl-dot"></span>Offer received</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stats">
+    <div class="stats-grid">
+      <div class="stat"><div class="stat-num">5</div><div class="stat-label">source platforms unified</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">specialized agents</div></div>
+      <div class="stat"><div class="stat-num">1</div><div class="stat-label">conversation to run them all</div></div>
+      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">deadline tracking</div></div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <h2 class="section-title center">Stop tab-hopping. Start Synora.</h2>
+    <p class="section-sub center">Your onboarding takes under two minutes.</p>
+    <button class="btn btn-primary btn-lg" onclick="openAuthModal('signup')">Get Started</button>
+  </section>
+
+  <footer class="footer">
+    <span>Synora AI — built for the hackathon floor.</span>
+  </footer>
+</div>
+
+<!-- ============================================================
+     AUTH MODAL
+============================================================ -->
+<div id="modal-auth" class="modal-overlay">
+  <div class="modal auth-modal">
+    <button class="modal-close" onclick="closeAuthModal()">✕</button>
+    <div class="brand modal-brand"><span class="brand-mark">✺</span><span class="brand-name">Synora <span class="brand-ai">AI</span></span></div>
+
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" id="tab-login-btn" onclick="switchAuthTab('login')">Log In</button>
+      <button type="button" class="auth-tab" id="tab-signup-btn" onclick="switchAuthTab('signup')">Sign Up</button>
+    </div>
+
+    <!-- LOGIN -->
+    <form id="form-login" onsubmit="return handleLogin(event)">
+      <label>Email
+        <input type="email" id="login-email" placeholder="you@example.com" required autocomplete="username">
+      </label>
+      <label>Password
+        <div class="password-field">
+          <input type="password" id="login-password" placeholder="••••••••" required autocomplete="current-password">
+          <button type="button" class="pw-toggle" onclick="togglePasswordVisibility('login-password', this)" aria-label="Show password">👁</button>
+        </div>
+      </label>
+      <label class="checkbox-row"><input type="checkbox" id="login-remember" checked><span>Remember me on this device</span></label>
+      <p class="form-error" id="login-error"></p>
+      <button type="submit" class="btn btn-primary btn-block">Log In</button>
+    </form>
+
+    <!-- SIGN UP -->
+    <form id="form-signup" class="hidden" onsubmit="return handleSignup(event)">
+      <label>Full name
+        <input type="text" id="signup-name" placeholder="e.g. Sniya" required autocomplete="name">
+      </label>
+      <label>Email
+        <input type="email" id="signup-email" placeholder="you@example.com" required autocomplete="username">
+      </label>
+      <div class="ob-row">
+        <label>GitHub profile <span class="opt">optional</span>
+          <input type="url" id="signup-github" placeholder="https://github.com/username">
+        </label>
+        <label>LinkedIn profile <span class="opt">optional</span>
+          <input type="url" id="signup-linkedin" placeholder="https://linkedin.com/in/username">
+        </label>
+      </div>
+      <label>Password
+        <div class="password-field">
+          <input type="password" id="signup-password" placeholder="At least 8 characters" required autocomplete="new-password" oninput="updatePasswordStrength()">
+          <button type="button" class="pw-toggle" onclick="togglePasswordVisibility('signup-password', this)" aria-label="Show password">👁</button>
+        </div>
+      </label>
+      <div class="strength-meter"><div class="strength-fill" id="strength-fill"></div></div>
+      <p class="strength-label" id="strength-label">&nbsp;</p>
+      <label>Confirm password
+        <div class="password-field">
+          <input type="password" id="signup-confirm" placeholder="Re-enter password" required autocomplete="new-password">
+          <button type="button" class="pw-toggle" onclick="togglePasswordVisibility('signup-confirm', this)" aria-label="Show password">👁</button>
+        </div>
+      </label>
+      <label class="checkbox-row"><input type="checkbox" id="signup-remember" checked><span>Remember me on this device</span></label>
+      <p class="form-error" id="signup-error"></p>
+      <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    </form>
+
+    <div class="auth-divider"><span>or</span></div>
+    <button class="btn btn-google btn-block" onclick="handleGoogleLogin()">
+      <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 01-1.8 2.72v2.26h2.9c1.7-1.56 2.7-3.86 2.7-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.26c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.98v2.33A9 9 0 009 18z"/><path fill="#FBBC05" d="M3.95 10.7A5.4 5.4 0 013.68 9c0-.59.1-1.16.27-1.7V4.96H.98A9 9 0 000 9c0 1.45.35 2.83.98 4.04l2.97-2.34z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.46 3.44 1.35l2.58-2.58C13.46.9 11.43 0 9 0A9 9 0 00.98 4.96L3.95 7.3C4.66 5.17 6.65 3.58 9 3.58z"/></svg>
+      Continue with Google
+    </button>
+    <button class="btn btn-ghost btn-block" onclick="handleGuestLogin()">Continue as Guest</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     AI ONBOARDING
+============================================================ -->
+<div id="screen-onboarding" class="screen">
+  <div class="onboarding-wrap">
+    <div class="onboarding-progress">
+      <div class="ob-step active" data-step="1">1<span>Profile</span></div>
+      <div class="ob-line"></div>
+      <div class="ob-step" data-step="2">2<span>Interests</span></div>
+      <div class="ob-line"></div>
+      <div class="ob-step" data-step="3">3<span>Domain</span></div>
+    </div>
+
+    <div class="onboarding-card" id="ob-panel-1">
+      <p class="eyebrow">Step 1 of 3</p>
+      <h2>Tell Synora who you are</h2>
+      <label>Full name<input type="text" id="ob-name" placeholder="e.g. Sniya"></label>
+      <label>College / University<input type="text" id="ob-college" placeholder="e.g. Sri Shakthi Institute of Engineering and Technology"></label>
+      <div class="ob-row">
+        <label>Year<select id="ob-year"><option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>Final Year</option></select></label>
+        <label>Branch<input type="text" id="ob-branch" placeholder="e.g. CSE"></label>
+      </div>
+      <button class="btn btn-primary btn-block" onclick="goToStep(2)">Continue</button>
+    </div>
+
+    <div class="onboarding-card hidden" id="ob-panel-2">
+      <p class="eyebrow">Step 2 of 3</p>
+      <h2>What are you hunting for?</h2>
+      <p class="ob-hint">Pick as many as apply.</p>
+      <div class="chip-group" id="ob-interests">
+        <button type="button" class="chip" data-value="Jobs">Jobs</button>
+        <button type="button" class="chip" data-value="Internships">Internships</button>
+        <button type="button" class="chip" data-value="Hackathons">Hackathons</button>
+      </div>
+      <div class="ob-actions">
+        <button class="btn btn-ghost" onclick="goToStep(1)">Back</button>
+        <button class="btn btn-primary" onclick="goToStep(3)">Continue</button>
+      </div>
+    </div>
+
+    <div class="onboarding-card hidden" id="ob-panel-3">
+      <p class="eyebrow">Step 3 of 3</p>
+      <h2>Your preferred domain</h2>
+      <p class="ob-hint">Synora tunes matches and skill paths around this.</p>
+      <div class="chip-group single" id="ob-domain">
+        <button type="button" class="chip" data-value="AI">AI</button>
+        <button type="button" class="chip" data-value="Web Development">Web Development</button>
+        <button type="button" class="chip" data-value="Cyber Security">Cyber Security</button>
+        <button type="button" class="chip" data-value="Data Science">Data Science</button>
+      </div>
+      <div class="ob-actions">
+        <button class="btn btn-ghost" onclick="goToStep(2)">Back</button>
+        <button class="btn btn-primary" onclick="finishOnboarding()">Enter Dashboard</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     APP SHELL (Dashboard + Agents)
+============================================================ -->
+<div id="screen-app" class="screen">
+  <div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand sidebar-brand"><span class="brand-mark">✺</span><span class="brand-name">Synora <span class="brand-ai">AI</span></span></div>
+      <nav class="sidebar-nav">
+        <button class="side-link active" data-target="view-dashboard" onclick="showView('view-dashboard', this)"><span>🏠</span>Dashboard</button>
+        <button class="side-link" data-target="view-profile" onclick="showView('view-profile', this)"><span>👤</span>My Profile</button>
+        <button class="side-link" data-target="view-chat" onclick="showView('view-chat', this)"><span>💬</span>AI Career Assistant</button>
+        <button class="side-link" data-target="view-resume" onclick="showView('view-resume', this)"><span>📄</span>Resume Agent</button>
+        <button class="side-link" data-target="view-match" onclick="showView('view-match', this)"><span>🎯</span>Matchmaking Agent</button>
+        <button class="side-link" data-target="view-skillgap" onclick="showView('view-skillgap', this)"><span>📈</span>Skill Gap Agent</button>
+        <button class="side-link" data-target="view-opportunity" onclick="showView('view-opportunity', this)"><span>🔍</span>Opportunity Agent</button>
+        <button class="side-link" data-target="view-interview" onclick="showView('view-interview', this)"><span>🎤</span>Interview Agent</button>
+        <button class="side-link" data-target="view-scam" onclick="showView('view-scam', this)"><span>🛡</span>Scam Detection Agent</button>
+        <button class="side-link" data-target="view-timeline" onclick="showView('view-timeline', this)"><span>🕒</span>Career Timeline</button>
+        <button class="side-link" data-target="view-settings" onclick="showView('view-settings', this)"><span>⚙️</span>Settings</button>
+      </nav>
+      <div class="sidebar-user" id="sidebar-user">
+        <div class="avatar">S</div>
+        <div><div class="user-name" id="sidebar-name">Guest</div><div class="user-sub" id="sidebar-domain">—</div></div>
+      </div>
+    </aside>
+
+    <!-- Mobile topbar -->
+    <div class="mobile-topbar">
+      <button class="hamburger" onclick="toggleSidebar()">☰</button>
+      <div class="brand"><span class="brand-mark">✺</span><span class="brand-name">Synora</span></div>
+    </div>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+      <!-- DASHBOARD VIEW -->
+      <section class="view active" id="view-dashboard">
+        <div class="view-header">
+          <h1>Welcome back, <span id="dash-name">there</span> 👋</h1>
+          <p class="view-sub">Here's where your search stands right now.</p>
+        </div>
+
+        <div class="score-row">
+          <div class="score-card">
+            <div class="score-ring" id="ring-resume"><span id="score-resume">72</span></div>
+            <div><div class="score-title">Resume Score</div><div class="score-sub">Based on your last upload</div></div>
+          </div>
+          <div class="score-card">
+            <div class="score-ring accent" id="ring-match"><span id="score-match">86</span></div>
+            <div><div class="score-title">AI Match Score</div><div class="score-sub">Average across top matches</div></div>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div class="card">
+            <div class="card-head"><h3>Recommended for you</h3><button class="link-btn" onclick="showView('view-match', document.querySelector('[data-target=view-match]'))">View all →</button></div>
+            <div class="mini-list" id="dash-recommended"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Missing skills</h3><button class="link-btn" onclick="showView('view-skillgap', document.querySelector('[data-target=view-skillgap]'))">Close gap →</button></div>
+            <div class="tag-list" id="dash-missing-skills"></div>
+          </div>
+
+          <div class="card wide">
+            <div class="card-head"><h3>Career timeline</h3></div>
+            <div class="mini-timeline" id="dash-timeline"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Recent activity</h3></div>
+            <ul class="activity-list" id="dash-activity"></ul>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><h3>Quick AI actions</h3></div>
+            <div class="quick-actions">
+              <button class="btn btn-soft" onclick="quickAction('Analyze Resume')">📄 Analyze Resume</button>
+              <button class="btn btn-soft" onclick="quickAction('Find Jobs')">🎯 Find Jobs</button>
+              <button class="btn btn-soft" onclick="quickAction('Skill Gap')">📈 Skill Gap</button>
+              <button class="btn btn-soft" onclick="quickAction('Mock Interview')">🎤 Mock Interview</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAT VIEW -->
+      <section class="view" id="view-chat">
+        <div class="chat-shell">
+          <div class="view-header slim">
+            <h1>AI Career Assistant</h1>
+            <p class="view-sub">Routed to whichever agent your question needs. <span class="ai-status" id="ai-status">● checking AI…</span></p>
+          </div>
+          <div class="chat-window" id="chat-window"></div>
+          <div class="typing-indicator hidden" id="typing-indicator"><span></span><span></span><span></span></div>
+          <div class="quick-prompts">
+            <button onclick="sendQuickPrompt('Analyze my resume')">Analyze Resume</button>
+            <button onclick="sendQuickPrompt('Find jobs for me')">Find Jobs</button>
+            <button onclick="sendQuickPrompt('Find internships for me')">Find Internships</button>
+            <button onclick="sendQuickPrompt('Find hackathons for me')">Find Hackathons</button>
+            <button onclick="sendQuickPrompt('What is my skill gap?')">Skill Gap</button>
+            <button onclick="sendQuickPrompt('Start a mock interview')">Mock Interview</button>
+            <button onclick="sendQuickPrompt('Give me career advice')">Career Advice</button>
+          </div>
+          <form class="chat-input-row" onsubmit="return handleChatSubmit(event)">
+            <input type="text" id="chat-input" placeholder="Ask Synora anything about your career...">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- RESUME AGENT VIEW -->
+      <section class="view" id="view-resume">
+        <div class="view-header">
+          <h1>Resume Agent</h1>
+          <p class="view-sub">Upload once, get scored, matched and improved.</p>
+        </div>
+        <div class="dash-grid">
+          <div class="card wide">
+            <div class="dropzone" id="dropzone" ondragover="event.preventDefault(); this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="handleResumeDrop(event)" onclick="document.getElementById('resume-file').click()">
+              <input type="file" id="resume-file" hidden accept=".pdf,.docx,.txt" onchange="handleResumeSelect(event)">
+              <div class="dropzone-icon">📄</div>
+              <p><strong>Drag & drop your resume</strong> or click to browse</p>
+              <p class="ob-hint" id="resume-filename">Supports PDF, DOCX and TXT — analyzed right in your browser, nothing is uploaded to a server.</p>
+            </div>
+            <button type="button" class="link-btn" id="paste-toggle-btn" onclick="togglePasteResume()">Can't upload a file? Paste your resume text instead ▾</button>
+            <div class="hidden" id="resume-paste-block">
+              <textarea id="resume-paste-text" rows="8" placeholder="Paste the full text of your resume here..."></textarea>
+              <button class="btn btn-primary" onclick="analyzePastedResume()">Analyze Pasted Text</button>
+            </div>
+            <p class="form-error" id="resume-error"></p>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Resume Score</h3></div>
+            <div class="score-ring lg" id="ring-resume-2"><span id="score-resume-2">—</span></div>
+            <p class="ob-hint center">out of 100</p>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Detected Skills</h3></div>
+            <div class="tag-list" id="resume-skills"><span class="empty-note">Upload a resume to detect skills.</span></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Projects</h3></div>
+            <ul class="simple-list" id="resume-projects"></ul>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Certifications</h3></div>
+            <ul class="simple-list" id="resume-certs"></ul>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Experience</h3></div>
+            <ul class="simple-list" id="resume-experience"></ul>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Contact & Links Check</h3></div>
+            <ul class="check-list" id="resume-checks"></ul>
+          </div>
+          <div class="card wide">
+            <div class="card-head"><h3>How to improve</h3></div>
+            <ul class="check-list" id="resume-suggestions"></ul>
+          </div>
+          <div class="card wide center-content">
+            <button class="btn btn-primary btn-lg" onclick="improveResume()">✨ Improve My Resume</button>
+            <p class="ob-hint" id="resume-improve-note"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MATCHMAKING VIEW -->
+      <section class="view" id="view-match">
+        <div class="view-header">
+          <h1>Matchmaking Agent</h1>
+          <p class="view-sub">Your profile, scored against real openings.</p>
+        </div>
+        <div class="opp-grid" id="match-cards"></div>
+      </section>
+
+      <!-- SKILL GAP VIEW -->
+      <section class="view" id="view-skillgap">
+        <div class="view-header">
+          <h1>Skill Gap Agent</h1>
+          <p class="view-sub">The shortest path from where you are to where you're going.</p>
+        </div>
+        <div class="dash-grid">
+          <div class="card">
+            <div class="card-head"><h3>Current skills</h3></div>
+            <div class="tag-list good" id="sg-current"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Missing skills</h3></div>
+            <div class="tag-list" id="sg-missing"></div>
+          </div>
+          <div class="card wide">
+            <div class="card-head"><h3>Recommended learning path</h3></div>
+            <div id="sg-path"></div>
+          </div>
+          <div class="card wide">
+            <div class="card-head"><h3>Suggested courses</h3></div>
+            <div class="mini-list" id="sg-courses"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- OPPORTUNITY AGENT VIEW -->
+      <section class="view" id="view-opportunity">
+        <div class="view-header">
+          <h1>Opportunity Agent</h1>
+          <p class="view-sub">Jobs, internships and hackathons — one feed, real deadlines.</p>
+        </div>
+        <div class="opp-tabs">
+          <button class="opp-tab active" data-tab="Jobs" onclick="setOppTab('Jobs', this)">Jobs</button>
+          <button class="opp-tab" data-tab="Internships" onclick="setOppTab('Internships', this)">Internships</button>
+          <button class="opp-tab" data-tab="Hackathons" onclick="setOppTab('Hackathons', this)">Hackathons</button>
+        </div>
+        <div class="opp-toolbar">
+          <input type="text" id="opp-search" placeholder="Search by role, company, or skill..." oninput="renderOpportunities()">
+          <select id="opp-filter-domain" onchange="renderOpportunities()">
+            <option value="">All domains</option>
+            <option>AI</option><option>Web Development</option><option>Cyber Security</option><option>Data Science</option>
+          </select>
+        </div>
+        <div class="opp-grid" id="opp-cards"></div>
+      </section>
+
+      <!-- MOCK INTERVIEW VIEW -->
+      <section class="view" id="view-interview">
+        <div class="view-header">
+          <h1>Mock Interview Agent</h1>
+          <p class="view-sub">Practice out loud. Get graded like it's real.</p>
+        </div>
+        <div class="dash-grid">
+          <div class="card wide center-content" id="interview-start-card">
+            <button class="btn btn-primary btn-lg" onclick="startInterview()">▶ Start Interview</button>
+          </div>
+          <div class="card wide hidden" id="interview-active-card">
+            <div class="card-head"><h3>Question <span id="interview-qnum">1</span> of 5</h3></div>
+            <p class="interview-question" id="interview-question"></p>
+            <textarea id="interview-answer" placeholder="Type your answer here..." rows="5"></textarea>
+            <button class="btn btn-primary" onclick="submitInterviewAnswer()">Submit Answer</button>
+            <div class="feedback-card hidden" id="interview-feedback">
+              <h4>AI Feedback</h4>
+              <p id="interview-feedback-text"></p>
+              <div class="feedback-score">Score: <strong id="interview-answer-score"></strong>/10</div>
+              <button class="btn btn-primary" id="interview-next-btn" onclick="nextInterviewQuestion()">Next Question →</button>
+            </div>
+          </div>
+          <div class="card wide hidden" id="interview-done-card">
+            <div class="card-head"><h3>Interview complete</h3></div>
+            <p class="ob-hint">Overall score</p>
+            <div class="score-ring lg accent"><span id="interview-final-score">0</span></div>
+            <button class="btn btn-ghost" onclick="startInterview()">Practice again</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCAM DETECTION VIEW -->
+      <section class="view" id="view-scam">
+        <div class="view-header">
+          <h1>Scam Detection Agent</h1>
+          <p class="view-sub">Paste a job post before you hand over your data.</p>
+        </div>
+        <div class="dash-grid">
+          <div class="card wide">
+            <textarea id="scam-input" placeholder="Paste the full job description here..." rows="8"></textarea>
+            <button class="btn btn-primary" onclick="analyzeScam()">Analyze</button>
+          </div>
+          <div class="card hidden" id="scam-result-card">
+            <div class="card-head"><h3>Trust Score</h3></div>
+            <div class="score-ring lg" id="ring-scam"><span id="scam-trust-score">--</span></div>
+            <p class="ob-hint center" id="scam-risk-level">—</p>
+          </div>
+          <div class="card wide hidden" id="scam-indicators-card">
+            <div class="card-head"><h3>Suspicious indicators</h3></div>
+            <ul class="simple-list" id="scam-indicators"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAREER TIMELINE VIEW -->
+      <section class="view" id="view-timeline">
+        <div class="view-header">
+          <h1>Career Timeline</h1>
+          <p class="view-sub">Every milestone, in order.</p>
+        </div>
+        <div class="vertical-timeline" id="full-timeline"></div>
+      </section>
+
+      <!-- PROFILE VIEW -->
+      <section class="view" id="view-profile">
+        <div class="view-header">
+          <h1>My Profile</h1>
+          <p class="view-sub">Your account, your details, kept in sync across every agent.</p>
+        </div>
+
+        <div class="profile-hero" id="profile-hero"></div>
+
+        <div class="dash-grid">
+          <div class="card wide" id="profile-view-card">
+            <div class="card-head"><h3>Profile details</h3><button class="link-btn" onclick="toggleProfileEdit(true)">Edit Profile ✎</button></div>
+            <div class="profile-details-grid" id="profile-details"></div>
+          </div>
+
+          <div class="card wide hidden" id="profile-edit-card">
+            <div class="card-head"><h3>Edit profile</h3></div>
+            <form id="form-profile-edit" onsubmit="return saveProfileEdit(event)">
+              <div class="ob-row">
+                <label>Full name<input type="text" id="edit-name" required></label>
+                <label>College / University<input type="text" id="edit-college"></label>
+              </div>
+              <div class="ob-row">
+                <label>Year
+                  <select id="edit-year">
+                    <option>1st Year</option><option>2nd Year</option><option>3rd Year</option><option>Final Year</option>
+                  </select>
+                </label>
+                <label>Branch<input type="text" id="edit-branch"></label>
+              </div>
+              <div class="ob-row">
+                <label>GitHub profile URL<input type="url" id="edit-github" placeholder="https://github.com/username"></label>
+                <label>LinkedIn profile URL<input type="url" id="edit-linkedin" placeholder="https://linkedin.com/in/username"></label>
+              </div>
+              <label>Preferred domain
+                <select id="edit-domain">
+                  <option>AI</option><option>Web Development</option><option>Cyber Security</option><option>Data Science</option>
+                </select>
+              </label>
+              <p class="ob-hint" style="margin-top:12px;">Interested in</p>
+              <div class="chip-group" id="edit-interests">
+                <button type="button" class="chip" data-value="Jobs">Jobs</button>
+                <button type="button" class="chip" data-value="Internships">Internships</button>
+                <button type="button" class="chip" data-value="Hackathons">Hackathons</button>
+              </div>
+              <p class="form-error" id="profile-edit-error"></p>
+              <div class="ob-actions">
+                <button type="button" class="btn btn-ghost" onclick="toggleProfileEdit(false)">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="card wide" id="profile-password-card">
+            <div class="card-head"><h3>Change password</h3></div>
+            <form id="form-change-password" onsubmit="return handleChangePassword(event)">
+              <div class="ob-row">
+                <label>Current password
+                  <div class="password-field">
+                    <input type="password" id="pwd-current" required autocomplete="current-password">
+                    <button type="button" class="pw-toggle" onclick="togglePasswordVisibility('pwd-current', this)" aria-label="Show password">👁</button>
+                  </div>
+                </label>
+                <label>New password
+                  <div class="password-field">
+                    <input type="password" id="pwd-new" required autocomplete="new-password">
+                    <button type="button" class="pw-toggle" onclick="togglePasswordVisibility('pwd-new', this)" aria-label="Show password">👁</button>
+                  </div>
+                </label>
+              </div>
+              <label>Confirm new password
+                <div class="password-field">
+                  <input type="password" id="pwd-confirm" required autocomplete="new-password">
+                  <button type="button" class="pw-toggle" onclick="togglePasswordVisibility('pwd-confirm', this)" aria-label="Show password">👁</button>
+                </div>
+              </label>
+              <p class="form-error" id="password-change-error"></p>
+              <p class="form-success hidden" id="password-change-success">Password updated successfully.</p>
+              <button type="submit" class="btn btn-primary">Update Password</button>
+            </form>
+          </div>
+
+          <div class="card wide hidden" id="profile-guest-note">
+            <div class="card-head"><h3>Change password</h3></div>
+            <p class="ob-hint">You're in a guest session, so there's no account or password to manage. <a href="#" onclick="event.preventDefault(); handleLogout(); openAuthModal('signup');" style="color:var(--primary); font-weight:600;">Create an account</a> to save your profile permanently.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SETTINGS VIEW -->
+      <section class="view" id="view-settings">
+        <div class="view-header">
+          <h1>Settings</h1>
+        </div>
+        <div class="dash-grid">
+          <div class="card">
+            <div class="card-head"><h3>Appearance</h3></div>
+            <div class="setting-row">
+              <span>Dark Mode</span>
+              <label class="switch"><input type="checkbox" id="dark-mode-toggle" checked onchange="toggleDarkMode()"><span class="slider"></span></label>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Profile</h3></div>
+            <div class="profile-view" id="settings-profile"></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><h3>Session</h3></div>
+            <button class="btn btn-ghost btn-block" onclick="handleLogout()">Log Out</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
